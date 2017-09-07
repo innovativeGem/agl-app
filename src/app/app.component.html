@@ -1,7 +1,8 @@
 
 <h2>AGL Test </h2>
 <ul>
-  <li>
+  <li *ngFor="let p of people | async">
+    p.name
   </li>
 </ul>
 
