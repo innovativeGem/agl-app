@@ -7,14 +7,27 @@ import { AppService } from './app.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  providers: [AppService]
 })
 export class AppComponent implements OnInit {
   constructor(private appService: AppService) {}
+  self = this;
   people: Observable<any[]>;
+  gender: String;
+  males = [];
+  females = [];
 
   loadPeople() {
     this.people = this.appService.getPeople();
-    console.log(this.people);
+    this.people.forEach(parentElement => {
+      parentElement.forEach(childElement => {
+        if (childElement.gender === 'Male') {
+          this.males.push(childElement);
+        }else {
+          this.females.push(childElement);
+        }
+      });
+    });
   }
 
   ngOnInit() {

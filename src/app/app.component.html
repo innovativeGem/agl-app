@@ -1,8 +1,18 @@
 
-<h2>AGL Test </h2>
-<ul>
-  <li *ngFor="let p of people | async">
-    p.name
-  </li>
-</ul>
+<h1>AGL Test </h1>
+
+<div class="listContainer">
+    <h2>Male</h2>
+    <ul>
+      <li *ngFor="let mp of males" [hidden]="mp.pets === null">
+        {{mp.name}} owns <app-pets [person]="mp"></app-pets>
+      </li>
+    </ul>
+    <h2>Female</h2>
+    <ul>
+      <li *ngFor="let fp of females" [hidden]="fp.pets === null">
+          {{fp.name}} owns <app-pets [person]="fp"></app-pets>
+      </li>
+    </ul>
+  </div>
 

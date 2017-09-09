@@ -4,10 +4,14 @@ import { HttpModule } from '@angular/http';
 
 import { AppService } from './app.service';
 import { AppComponent } from './app.component';
+import { PetsComponent } from './pets/pets.component';
+import { PetComponent } from './pet/pet.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    PetsComponent,
+    PetComponent,
   ],
   imports: [
     BrowserModule,
